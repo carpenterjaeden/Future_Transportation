@@ -22,9 +22,12 @@ Some other potential constraints to consider are: population, crime statistics, 
 This system will be able to calculate the recommended form of transportation based on user-inputted system constraints. The system will also have the capabilities of assessing a range of different possible combinations of constraints to find potential solutions to better optimize what is currently being used.
 Output different potential options with different stats
 
-Car:
-price: #######
+the breakdown may look like:
+Car(potentially different models of car): 
+price: #######         
 speed: ##########
+
+Try to find a niche that is not filled
 
 
 
