@@ -18,4 +18,7 @@ The different factors that will affect the viability for a mode of transportatio
 ## Aditional System Constraints
 Some other potential constraints to consider are: population, crime statistics, the size of the infrastructure, and the culture of the area (for example, some places are more culturally prone to walking)
 
+## Use Cases for the System
+This system will be able to calculate the recommended form of transportation based on user-inputted system constraints. The system will also have the capabilities of assessing a range of different possible combinations of constraints to find potential solutions to better optimize what is currently being used.
+
 
