@@ -16,6 +16,7 @@ class Transportation:
         self.safety = safety # scale of 1 - 10
         self.maintainability = maintainability # scale of 1 - 10, how much the user would have to input to maintain it
         self.disability_support = disability_support # boolean that determines whether the vehicle supports people who cannot operate a vehicle
+        # maybe add an age range
 
     def create_graph(self):
         # will print the proper display for the mode of transportation
@@ -30,4 +31,5 @@ class Transportation:
 
     def calculate_viability(self, user, infrastructure):
         # based on the user and the infrastructure, there will be a rating given to the mode of transportation
-        
+        # user: age, distance, time, size, disability, traffic
+        # infrastructure: name, size, traffic, roads
