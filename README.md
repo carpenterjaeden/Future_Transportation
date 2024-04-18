@@ -29,5 +29,8 @@ speed: ##########
 
 Try to find a niche that is not filled
 
+# Meeting
+have an option for different disabilities
+
 
 
