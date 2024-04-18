@@ -1,11 +1,11 @@
 # Contains classes for all the different types of roadways
-# types = "highway", "grid", "few_roads"
-# size = "small", "medium", "large"
 class Infrastructure:
-    def __init__(self, type, size):
-        self.type = type
-        self.size = size
-        self.roads = []
+    def __init__(self, name, size, traffic, roads):
+        self.name = name # "highway", "grid", "few_roads", etc 
+        self.size = size # scale of 1-10 depends on user input
+        self.traffic = traffic # level of traffic which may be based on user input or just estimated, could maybe take in the time of day instead or something
+        self.roads = roads # scale of 1 - 10 of how many roads there are
+        
 
 
 
