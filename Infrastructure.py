@@ -9,5 +9,5 @@ class Infrastructure:
     # method that takes a user and adjusts the infrastructure to match what they input
     def input_parameters(self, user):
 
-
+        return
 

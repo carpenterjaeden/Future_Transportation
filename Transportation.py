@@ -28,8 +28,23 @@ class Transportation:
         # Time is from out the door to the destination
         # comfortability includes traffic, parking, environmental impact
         # may add something in regards to disability support
+        return
 
     def calculate_viability(self, user, infrastructure):
         # based on the user and the infrastructure, there will be a rating given to the mode of transportation
         # user: age, distance, time, size, disability, traffic
         # infrastructure: name, size, traffic, roads
+
+        # score based on user
+        score = 0 # higher the score, the higher the viability
+        if (user.size < self.size):
+            score -= 1000
+        if (user.disability != self.disability_support):
+            score -= 1000
+        score -= user.traffic * self.traffic * 2
+        score += user.time * (self.parking + self.time_to_start + self.transport_time)
+        score -= user.cost * (self.cost + self.maintainability + self.parking)
+        score -= 2 * self.environmental_impact
+        # score based on infrastructure
+        
+        return score
