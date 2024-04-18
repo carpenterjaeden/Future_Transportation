@@ -30,4 +30,4 @@ class Transportation:
 
     def calculate_viability(self, user, infrastructure):
         # based on the user and the infrastructure, there will be a rating given to the mode of transportation
-
+        
