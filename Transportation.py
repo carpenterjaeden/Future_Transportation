@@ -17,6 +17,17 @@ class Transportation:
         self.maintainability = maintainability # scale of 1 - 10, how much the user would have to input to maintain it
         self.disability_support = disability_support # boolean that determines whether the vehicle supports people who cannot operate a vehicle
 
+    def create_graph(self):
+        # will print the proper display for the mode of transportation
+        # Ex: Car:
+        #     cost ######
+        #     time ####
+        #     comfortability ####
+        # There may be more shown, but the idea is that cost is the price of use (cost and maintainability)
+        # Time is from out the door to the destination
+        # comfortability includes traffic, parking, environmental impact
+        # may add something in regards to disability support
 
-
+    def calculate_viability(self, user, infrastructure):
+        # based on the user and the infrastructure, there will be a rating given to the mode of transportation
 

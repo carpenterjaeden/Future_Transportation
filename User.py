@@ -7,8 +7,9 @@ class User:
         self.size = size
         self.distance = distance
         self.time = time
-# method that takes user input and uses it to instatiate the class
 
+    # method that takes user input and uses it to instatiate the class
+    def input_parameters(self):
     
 
 
