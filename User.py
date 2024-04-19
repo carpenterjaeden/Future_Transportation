@@ -5,9 +5,9 @@ class User:
         self.age = age # age of user will affect how appropriate some modes of transportation are (ie: under 16 cannot drive)
         self.size = size # number of people travelling
         self.distance = distance # approximate distance in miles
-        self.time = time # scale 1-10 of how fast the user wants to go
+        self.time = time # scale 0-10 of how fast the user wants to go
         self.disability = disability # boolean that determines whether the user cannot operate a motor vehicle
-        self.traffic = traffic # scale 1-10
+        self.traffic = traffic # scale 0-10
         self.cost = cost
 
     # method that takes user input and uses it to instatiate the class
