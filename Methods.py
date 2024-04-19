@@ -30,3 +30,18 @@ def set_modes_of_transportation():
     mot.append(bike)
 
     return mot
+
+def set_types_of_infrastructure():
+    # 1. name
+    # 2. size       --> Depends on User Input (currently has placeholder values) <--
+    # 3. traffic    --> Depends on User Input (currently has placeholder values) <--
+    # 4. roads
+    
+    toi = [] # array that contains the types of infrastructure that will be used for loops
+    highway = Infrastructure('highway', 3, 5, 2)
+    toi.append(highway)
+    grid =    Infrastructure('grid', 7, 7, 8)
+    toi.append(grid)
+    suburb =  Infrastructure('suburb', 5, 2, 5)
+    toi.append(suburb)
+    rural =   Infrastructure('rural', 9, 1, 4)
