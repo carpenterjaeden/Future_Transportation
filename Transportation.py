@@ -4,7 +4,7 @@
 #   safety, maintainability
 
 class Transportation:
-    def __init__(self, name, cost, size, time_to_start, parking, transport_time, environmental_impact, traffic, safety, maintainability, infrastructure, disability_support):
+    def __init__(self, name, cost, size, time_to_start, parking, transport_time, environmental_impact, traffic, safety, maintainability, disability_support, description=""):
         self.name = name # ex: "train", "car"
         self.cost = cost # scale of 0 - 10
         self.size = size # amount of people supported, give an estimate
@@ -16,6 +16,7 @@ class Transportation:
         self.safety = safety # scale of 0 - 10
         self.maintainability = maintainability # scale of 0 - 10, how much the user would have to input to maintain it
         self.disability_support = disability_support # boolean that determines whether the vehicle supports people who cannot operate a vehicle
+        self.description = description # 1 or 2 sentences that describe the benefits of the mode of transport to the user
         # maybe add an age range
 
     def create_graph(self):
@@ -28,9 +29,23 @@ class Transportation:
         # Time is from out the door to the destination
         # comfortability includes traffic, parking, environmental impact
         # may add something in regards to disability support
+
         cost = 2*self.cost + 2*self.maintainability + self.parking # max value of 50
         time = self.parking + self.time_to_start + self.transport_time # max value of 30
-        comfortability = self.parking + self.environmental_impact + self.safety + self.parking #
+        comfortability = self.parking + self.environmental_impact + self.safety + self.traffic + 5 * self.disability_support # max value of 45
+
+        def print_val(name,value, max): # function to print the hashes
+            inc = max/10 # denotes how much each hash is worth (1/10 of the max value)
+            num_hashes = int(value/inc) # ensure num_hashes is an integer
+            print(name + ": ", end="")
+            for _ in range(num_hashes):
+                print("#", end="")
+            print()  # Print a newline after all hashes have been printed
+
+        print(self.name + ":")
+        print_val(name = "Cost", value = cost, max=50)
+        print_val(name = "Time", value = time, max=50)
+        print_val(name = "Comfort", value = comfortability, max=50)        
         return
 
     def calculate_viability(self, user, infrastructure):
