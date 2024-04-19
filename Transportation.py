@@ -17,6 +17,7 @@ class Transportation:
         self.maintainability = maintainability # scale of 0 - 10, how much the user would have to input to maintain it
         self.disability_support = disability_support # boolean that determines whether the vehicle supports people who cannot operate a vehicle
         self.description = description # 1 or 2 sentences that describe the benefits of the mode of transport to the user
+        # maybe add a range for how far the vehicle can travel
         # maybe add an age range
 
     def create_graph(self):

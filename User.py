@@ -1,7 +1,7 @@
 # Class for the User
 # Optimized to have the easiest, fewest questions while still being able to get a good idea for the best mode of transportation
 class User:
-    def __init__(self, age, distance, time, size, disability, traffic, cost):
+    def __init__(self, age, distance, time, size, disability, traffic, cost, infrastructure):
         self.age = age # age of user will affect how appropriate some modes of transportation are (ie: under 16 cannot drive)
         self.size = size # number of people travelling
         self.distance = distance # approximate distance in miles
@@ -9,6 +9,7 @@ class User:
         self.disability = disability # boolean that determines whether the user cannot operate a motor vehicle
         self.traffic = traffic # scale 0-10
         self.cost = cost
+        self.infrastructure = infrastructure
 
     # method that takes user input and uses it to instatiate the class
     @classmethod
@@ -20,6 +21,7 @@ class User:
         disability = bool(input("Are there any impairments or disabilities that affect your ability to operate a motor vehicle? (True/False): "))
         traffic = int(input("What is the estimated amount of traffic? (1-10)"))
         cost = int(input("How important is the cost? (1-10)"))
+        infrastructure = int(input("What kind of infrastructure are you travelling in? (1-10)"))
 
         return cls(age, distance, time, size, disability, traffic, cost)
     
