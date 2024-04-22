@@ -14,19 +14,20 @@ def set_modes_of_transportation():
     # 9. safety
     # 10. maintain
     # 11. dis_sup
+    # 12. description
 
     mot = [] # array that contains the modes of transportation that will be used for loops
-    train = Transportation('train', 3, 70, 7, 0, 7, 2, 1, 6, 0, True)
+    train = Transportation('train', 3, 70, 7, 0, 7, 2, 1, 6, 0, True, "PROS: Low Cost, Fast Travel Time (destination based), Public Transportation.")
     mot.append(train)
-    car =   Transportation('car'  , 6, 4 , 1, 7, 5, 5, 6, 7, 6, True) # personal car
+    car =   Transportation('car'  , 6, 4 , 1, 7, 5, 5, 6, 7, 6, True, "PROS: Immediate Start Time, Higher Safety, Private Transportation, Target Destination.") # personal car
     mot.append(car)
-    taxi =  Transportation('taxi' , 5, 2 , 4, 0, 5, 5, 6, 5, 0, True) # taxi, uber, etc.
+    taxi =  Transportation('taxi' , 5, 2 , 4, 0, 5, 5, 6, 5, 0, True, "PROS: No Parking Required, No Maintenance, Private Transportation, Target Destination.") # taxi, uber, etc.
     mot.append(taxi)
-    plane = Transportation('plane', 8, 200, 8, 2, 9, 6, 1, 8, 0, True)
+    plane = Transportation('plane', 8, 200, 8, 2, 9, 6, 1, 8, 0, True, "PROS: Larger Size, Fast Travel Time (destination based), Public Transportation.")
     mot.append(plane)
-    walk =  Transportation('walk', 0, 1, 0, 0, 9, 0, 1, 5, 10, False) # I assume false for dis_sup?
+    walk =  Transportation('walk', 0, 1, 0, 0, 1, 0, 1, 5, 10, False, "PROS: No Cost, Immediate Start Time, No Parking, Low Environment Impact.") # I assume false for dis_sup?
     mot.append(walk)
-    bike =  Transportation('bike', 1, 1, 0, 2, 8, 0, 3, 4, 9, False)
+    bike =  Transportation('bike', 1, 1, 0, 2, 3, 0, 3, 4, 9, False, "PROS: Low Cost, Immediate Start Time, Low Environmental Impact.")
     mot.append(bike)
 
     return mot
