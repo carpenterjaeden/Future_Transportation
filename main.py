@@ -8,6 +8,7 @@ import Methods
 # ask for user input by calling a method in user
 
 mot = Methods.set_modes_of_transportation()
+toi = Methods.set_types_of_infrastructure()
 
 # this is how to instantiate a user using input parameters
 user = User.input_parameters()
