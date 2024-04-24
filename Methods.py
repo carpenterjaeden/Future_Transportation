@@ -43,8 +43,5 @@ def set_types_of_infrastructure():
     toi.append(highway)
     grid =    Infrastructure('grid', 7, 7, 8)
     toi.append(grid)
-    suburb =  Infrastructure('suburb', 5, 2, 5)
-    toi.append(suburb)
-    rural =   Infrastructure('rural', 9, 1, 4)
 
     return toi
