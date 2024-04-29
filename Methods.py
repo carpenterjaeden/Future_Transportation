@@ -1,6 +1,6 @@
-import Infrastructure
-import Transportation
-import User
+from Infrastructure import Infrastructure
+from Transportation import Transportation
+from User import User
 
 def set_modes_of_transportation():
     # 1. name
@@ -45,3 +45,41 @@ def set_types_of_infrastructure():
     toi.append(grid)
 
     return toi
+
+def initialize_infrastructure(user, toi):
+    # set the infrastructure class that is stored in the user variable to the correct infrastructure
+
+    for infrastructure in toi:
+        if infrastructure.name == user.infrastructure_name:
+            user.infrastructure = infrastructure
+            break
+    else:
+        raise ValueError("Infrastructure not found")
+        
+    # adjust the infrastructure to fit the user inputs
+    user.infrastructure.input_parameters(user)
+    return
+
+# perform all the analysis and printing
+# takes a user class, an array of modes of transportation, and a boolean true or false value to denote whether to print to console
+def analyze_output(user,mot, should_print):
+    score = {} # dictionary that maps the modes of transportation to their scores
+    for trans in mot:
+        s = trans.calculate_viability(user, user.infrastructure)
+        if s > -10000:
+            score[trans] = s
+    # sort the scores to provide a list with the top 5 modes of transportation
+    top_modes = sorted(score, key=score.get, reverse=True)[:5]
+    if (should_print):
+        print("Top modes of transportation: ")
+        print("Higher values are better")
+        for trans in top_modes:
+            trans.create_graph()
+    return
+# analyzes many different values for the user
+def longitudal_analysis(num_tests, toi):
+    for _ in range(num_tests):
+        user = User.random_parameters()
+        initialize_infrastructure(user, toi)
+
+    

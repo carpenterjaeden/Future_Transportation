@@ -11,9 +11,9 @@ class Transportation:
         self.time_to_start = time_to_start # time to get on the road, scale of 0-10 , will be lowest for walking and a lot higher for bus or plane
         self.parking = parking # how difficult it is to find parking, scale of 0-10 where 1 is no parking
         self.transport_time = transport_time # scale of 0-10, essentially how quick the transportation tends to be
-        self.environmental_impact = environmental_impact # scale of 0 - 10
+        self.environmental_impact = environmental_impact # scale of 0 - 10 how much it affects the environment
         self.traffic = traffic # scale of 0 - 10 for how hard it is to navigate in traffic
-        self.safety = safety # scale of 0 - 10
+        self.safety = safety # scale of 0 - 10 how safe it is
         self.maintainability = maintainability # scale of 0 - 10, how much the user would have to input to maintain it
         self.disability_support = disability_support # boolean that determines whether the vehicle supports people who cannot operate a vehicle
         self.description = description # 1 or 2 sentences that describe the benefits of the mode of transport to the user
@@ -31,14 +31,14 @@ class Transportation:
         # comfortability includes traffic, parking, environmental impact
         # may add something in regards to disability support
 
-        cost = 2*self.cost + 2*self.maintainability + self.parking # max value of 50
-        time = self.parking + self.time_to_start + self.transport_time # max value of 30
-        comfortability = self.parking + self.environmental_impact + self.safety + self.traffic + 5 * self.disability_support # max value of 45
+        cost = 2*(10-self.cost) + 2*(10-self.maintainability) + (10-self.parking) # max value of 50
+        time = (10-self.parking) + (10-self.time_to_start) + (10-self.transport_time) # max value of 30
+        comfortability = (10-self.parking) + (10-self.environmental_impact) + self.safety + (10-self.traffic) + 5 * self.disability_support # max value of 45
 
         def print_val(name,value, max): # function to print the hashes
             inc = max/10 # denotes how much each hash is worth (1/10 of the max value)
             num_hashes = int(value/inc) # ensure num_hashes is an integer
-            print(name + ": ", end="")
+            print("\t" + name + ": ", end="")
             for _ in range(num_hashes):
                 print("#", end="")
             print()  # Print a newline after all hashes have been printed
@@ -46,7 +46,9 @@ class Transportation:
         print(self.name + ":")
         print_val(name = "Cost", value = cost, max=50)
         print_val(name = "Time", value = time, max=50)
-        print_val(name = "Comfort", value = comfortability, max=50)        
+        print_val(name = "Comfort", value = comfortability, max=50)
+        print(self.description)  
+        print()      
         return
 
     def calculate_viability(self, user, infrastructure):
@@ -57,13 +59,18 @@ class Transportation:
         # score based on user
         score = 0 # higher the score, the higher the viability
         if (user.size < self.size):
-            score -= 1000
+            score -= 10000
         if (user.disability != self.disability_support):
-            score -= 1000
+            score -= 10000
         score -= user.traffic * self.traffic * 2
-        score += user.time * (self.parking + self.time_to_start + self.transport_time)
+        #print(score)
+        score -= user.time * (self.parking + self.time_to_start + self.transport_time)
+        #print(score)
         score -= user.cost * (self.cost + self.maintainability + self.parking)
+        #print(score)
         score -= 2 * self.environmental_impact
+        #print(score)
         # score based on infrastructure
-
+        score -= (infrastructure.size + infrastructure.roads + infrastructure.traffic) *(self.parking + self.time_to_start + self.transport_time)/3
+        #print(score)
         return score
