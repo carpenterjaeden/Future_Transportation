@@ -29,10 +29,12 @@ def set_modes_of_transportation():
     mot.append(walk)
     bike =  Transportation('bike', 1, 1, 0, 2, 3, 0, 3, 4, 9, False, "PROS: Low Cost, Immediate Start Time, Low Environmental Impact.")
     mot.append(bike)
-    skateboard = Transportation('skateboard', 1, 1, 0, 0, 2, 0, 1, 4, 8, False, "PROS: Low Cost, Immediate Start Time, Low Space Utilization, Low Environmental Impact")
+    skateboard = Transportation('skateboard', 1, 1, 0, 0, 2, 0, 1, 4, 6, False, "PROS: Low Cost, Immediate Start Time, Low Space Utilization, Low Environmental Impact")
     mot.append(skateboard)
     wheelchair = Transportation('wheelchair', 2, 1, 2, 0, 1, 0, 2, 4, 2, True, "PROS: Low Maintainability Cost, Disability Support.")
     mot.append(wheelchair)    
+    rollerblades = Transportation('rollerblades', 2, 1, 1, 0, 2, 0, 1, 3, 6, False, "PROS: Low Cost, Easy Storage, Low Environmental Impact.");
+    mot.append(rollerblades)
 
     return mot
 
