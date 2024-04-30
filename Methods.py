@@ -35,6 +35,8 @@ def set_modes_of_transportation():
     mot.append(wheelchair)    
     rollerblades = Transportation('rollerblades', 2, 1, 1, 0, 2, 0, 1, 3, 6, False, "PROS: Low Cost, Easy Storage, Low Environmental Impact.");
     mot.append(rollerblades)
+    parasailing = Transportation('parasailing', 3, 3, 10, 0, 4, 5, 2, 2, 9, True, "PROS: More Direct Route, More Scenic Route, Limited Disability Support")
+    mot.append(parasailing);
 
     return mot
 
