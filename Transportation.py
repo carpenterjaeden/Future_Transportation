@@ -31,7 +31,7 @@ class Transportation:
         # comfortability includes traffic, parking, environmental impact
         # may add something in regards to disability support
 
-        cost = 2*(10-self.cost) + 2*(10-self.maintainability) + (10-self.parking) # max value of 50
+        cost = 3*(10-self.cost) + (10-self.maintainability) + (10-self.parking) # max value of 50
         time = (10-self.parking) + (10-self.time_to_start) + (10-self.transport_time) # max value of 30
         comfortability = (10-self.parking) + (10-self.environmental_impact) + self.safety + (10-self.traffic) + 5 * self.disability_support # max value of 45
 
@@ -58,10 +58,12 @@ class Transportation:
 
         # score based on user
         score = 0 # higher the score, the higher the viability
-        if (user.size < self.size):
+        if (user.size > self.size):
             score -= 10000
+            #print(f"size {user.age}")
         if (user.disability and not self.disability_support):
             score -= 10000
+            #print(f"dis {user.age} {user.disability}")
         score -= user.traffic * self.traffic * 2
         #print(score)
         score -= user.time * (self.parking + self.time_to_start + self.transport_time)

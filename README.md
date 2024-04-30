@@ -6,7 +6,8 @@ There are three arguments available:
 --random: this makes the program accept randomly input parameters
 --la x: this makes the program perform x random analyses and shows the longitudal data
 
-ex: 'python main.py --la 100'
+example command: 
+```python main.py --la 100```
 
 ## Infrastructure.py
 For the infrastructures, the system will be American. There will be two different available forms of infrastructure based off the most prevalent forms found in the US.

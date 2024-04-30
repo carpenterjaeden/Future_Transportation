@@ -19,13 +19,13 @@ def set_modes_of_transportation():
     mot = [] # array that contains the modes of transportation that will be used for loops
     train = Transportation('train', 3, 70, 7, 0, 7, 2, 1, 6, 0, True, "PROS: Low Cost, Fast Travel Time (destination based), Public Transportation.")
     mot.append(train)
-    car =   Transportation('car'  , 6, 4 , 1, 7, 5, 5, 6, 7, 6, True, "PROS: Immediate Start Time, Higher Safety, Private Transportation, Target Destination.") # personal car
+    car =   Transportation('car'  , 6, 4 , 1, 7, 5, 5, 6, 7, 6, False, "PROS: Immediate Start Time, Higher Safety, Private Transportation, Target Destination.") # personal car
     mot.append(car)
     taxi =  Transportation('taxi' , 5, 2 , 4, 0, 5, 5, 6, 5, 0, True, "PROS: No Parking Required, No Maintenance, Private Transportation, Target Destination.") # taxi, uber, etc.
     mot.append(taxi)
-    plane = Transportation('plane', 8, 200, 8, 2, 9, 6, 1, 8, 0, True, "PROS: Larger Size, Fast Travel Time (destination based), Public Transportation.")
+    plane = Transportation('plane', 8, 200, 10, 2, 9, 6, 1, 8, 0, True, "PROS: Larger Size, Fast Travel Time (destination based), Public Transportation.")
     mot.append(plane)
-    walk =  Transportation('walk', 0, 1, 0, 0, 1, 0, 1, 5, 10, False, "PROS: No Cost, Immediate Start Time, No Parking, Low Environment Impact.") # I assume false for dis_sup?
+    walk =  Transportation('walk', 0, 5, 0, 0, 1, 0, 1, 5, 10, False, "PROS: No Cost, Immediate Start Time, No Parking, Low Environment Impact.") # I assume false for dis_sup?
     mot.append(walk)
     bike =  Transportation('bike', 1, 1, 0, 2, 3, 0, 3, 4, 9, False, "PROS: Low Cost, Immediate Start Time, Low Environmental Impact.")
     mot.append(bike)
@@ -69,7 +69,7 @@ def analyze_output(user,mot):
         if s > -10000:
             score[trans] = s
     # sort the scores to provide a list with the top 5 modes of transportation
-    top_modes = sorted(score, key=score.get, reverse=True)[:5]
+    top_modes = sorted(score, key=score.get, reverse=True)[:4]
     return top_modes
 
 # prints out the modes of transportation
@@ -90,10 +90,11 @@ def longitudal_analysis(num_tests, mot, toi):
         initialize_infrastructure(user, toi)
         top_modes = analyze_output(user, mot)
         if top_modes:
-            scores[top_modes[0]] += 1
+            for i in range(len(top_modes)):
+                scores[top_modes[i]] += 1
         else:
             print("no top mode")
-            print(user.disability)
+            print(vars(user))
     return scores
 
 # print out the longitudal analysis scores

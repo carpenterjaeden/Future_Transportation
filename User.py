@@ -20,7 +20,8 @@ class User:
         distance = float(input("Enter the approximate distance to your destination in miles: "))
         time = float(input("How important is the time of travel (0-10): "))
         size = int(input("Enter the number of people travelling: "))
-        disability = bool(input("Are there any impairments or disabilities that affect your ability to operate a motor vehicle? (True/False): "))
+        disability_input = input("Are there any impairments or disabilities that affect your ability to operate a motor vehicle? (True/False): ")
+        disability = (disability_input.lower() == 'true')
         traffic = int(input("What is the estimated amount of traffic? (0-10): "))
         cost = int(input("How important is the cost? (0-10): "))
         infrastructure_name = input("What kind of infrastructure are you travelling in? highway or grid: ")
@@ -30,7 +31,7 @@ class User:
     @classmethod
     def random_parameters(cls):
         age = random.randint(15, 80)
-        distance = round(random.uniform(1.0, 100.0), 2)
+        distance = random.randint(1, 100)
         time = random.randint(0, 10)
         size = random.randint(1, 10)
         disability = random.choice([True, False])
