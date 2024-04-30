@@ -41,6 +41,9 @@ def set_modes_of_transportation():
     mot.append(motorcycle)
     helicopter = Transportation('helicopter', 7, 4, 7, 4, 7, 6, 1, 7, 0, True, "PROS: Fast Travel Time, Disability Support.")
     mot.append(helicopter)
+    emergency_vehicle = Transportation('emergency_vehicle', 10, 2, 1, 0, 10, 7, 1, 9, 0, True, "PROS: Fast Travel Time, Disability Support.")
+    mot.append(emergency_vehicle)
+
 
     return mot
 
