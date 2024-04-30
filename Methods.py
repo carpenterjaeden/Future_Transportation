@@ -32,7 +32,8 @@ def set_modes_of_transportation():
     skateboard = Transportation('skateboard', 1, 1, 0, 0, 2, 0, 1, 4, 8, False, "PROS: Low Cost, Immediate Start Time, Low Space Utilization, Low Environmental Impact")
     mot.append(skateboard)
     wheelchair = Transportation('wheelchair', 2, 1, 2, 0, 1, 0, 2, 4, 2, True, "PROS: Low Maintainability Cost, Disability Support.")
-    
+    mot.append(wheelchair)    
+
     return mot
 
 def set_types_of_infrastructure():
