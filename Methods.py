@@ -37,6 +37,10 @@ def set_modes_of_transportation():
     mot.append(rollerblades)
     parasailing = Transportation('parasailing', 3, 3, 10, 0, 4, 5, 2, 2, 9, True, "PROS: More Direct Route, More Scenic Route, Limited Disability Support")
     mot.append(parasailing);
+    motorcycle = Transportation('motorcycle', 4, 1, 4, 5, 4, 4, 4, 3, 7, False, "PROS: Better Traffic Manuverability, Fast Start Time")
+    mot.append(motorcycle)
+    helicopter = Transportation('helicopter', 7, 4, 7, 4, 7, 6, 1, 7, 0, True, "PROS: Fast Travel Time, Disability Support.")
+    mot.append(helicopter)
 
     return mot
 
