@@ -60,7 +60,7 @@ class Transportation:
         score = 0 # higher the score, the higher the viability
         if (user.size < self.size):
             score -= 10000
-        if (user.disability != self.disability_support):
+        if (user.disability and not self.disability_support):
             score -= 10000
         score -= user.traffic * self.traffic * 2
         #print(score)

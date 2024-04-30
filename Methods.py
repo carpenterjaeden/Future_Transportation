@@ -62,7 +62,7 @@ def initialize_infrastructure(user, toi):
 
 # perform all the analysis and printing
 # takes a user class, an array of modes of transportation, and a boolean true or false value to denote whether to print to console
-def analyze_output(user,mot, should_print):
+def analyze_output(user,mot):
     score = {} # dictionary that maps the modes of transportation to their scores
     for trans in mot:
         s = trans.calculate_viability(user, user.infrastructure)
@@ -70,16 +70,37 @@ def analyze_output(user,mot, should_print):
             score[trans] = s
     # sort the scores to provide a list with the top 5 modes of transportation
     top_modes = sorted(score, key=score.get, reverse=True)[:5]
-    if (should_print):
-        print("Top modes of transportation: ")
-        print("Higher values are better")
-        for trans in top_modes:
-            trans.create_graph()
+    return top_modes
+
+# prints out the modes of transportation
+def print_modes(top_modes):
+    print("Top modes of transportation: ")
+    print("Higher values are better")
+    for trans in top_modes:
+        trans.create_graph()
     return
+
 # analyzes many different values for the user
-def longitudal_analysis(num_tests, toi):
+def longitudal_analysis(num_tests, mot, toi):
+    # initialize all scores to 0
+    scores = {trans: 0 for trans in mot}
     for _ in range(num_tests):
+        # run analysis for num_tests amount of tests
         user = User.random_parameters()
         initialize_infrastructure(user, toi)
+        top_modes = analyze_output(user, mot)
+        if top_modes:
+            scores[top_modes[0]] += 1
+        else:
+            print("no top mode")
+            print(user.disability)
+    return scores
+
+# print out the longitudal analysis scores
+def print_scores(scores):
+    print("Scores:")
+    for trans, score in scores.items():
+        print(f"{trans.name}: {score}")
+
 
     

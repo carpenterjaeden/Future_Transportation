@@ -1,5 +1,13 @@
 ### Project
 
+## How to use the program
+There are three arguments available:
+--user: this is the default argument that makes the program only accept user input parameters
+--random: this makes the program accept randomly input parameters
+--la x: this makes the program perform x random analyses and shows the longitudal data
+
+ex: 'python main.py --la 100'
+
 ## Infrastructure.py
 For the infrastructures, the system will be American. There will be two different available forms of infrastructure based off the most prevalent forms found in the US.
 
@@ -28,8 +36,6 @@ price: #######
 speed: ##########
 
 Try to find a niche that is not filled
-
-# 
 
 # Meeting
 have an option for different disabilities
