@@ -9,6 +9,9 @@ There are three arguments available:
 example command: 
 ```python main.py --la 100```
 
+## Required Libraries for GUI
+- pygame
+
 ## Infrastructure.py
 For the infrastructures, the system will be American. There will be two different available forms of infrastructure based off the most prevalent forms found in the US.
 
