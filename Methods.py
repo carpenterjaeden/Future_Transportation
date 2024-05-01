@@ -28,7 +28,7 @@ def set_modes_of_transportation(off_road):
         mot.append(plane)
     walk =  Transportation('walk', 0, 5, 0, 0, 1, 0, 1, 5, 10, False, "PROS: No Cost, Immediate Start Time, No Parking, Low Environment Impact.") # I assume false for dis_sup?
     mot.append(walk)
-    bike =  Transportation('bike', 1, 1, 0, 2, 3, 0, 3, 4, 9, False, "PROS: Low Cost, Immediate Start Time, Low Environmental Impact.")
+    bike =  Transportation('bike', 1, 3, 0, 2, 3, 0, 3, 4, 9, False, "PROS: Low Cost, Immediate Start Time, Low Environmental Impact.")
     mot.append(bike)
     skateboard = Transportation('skateboard', 1, 1, 0, 0, 2, 0, 1, 4, 6, False, "PROS: Low Cost, Immediate Start Time, Low Space Utilization, Low Environmental Impact")
     mot.append(skateboard)
@@ -39,7 +39,7 @@ def set_modes_of_transportation(off_road):
     parasailing = Transportation('parasailing', 3, 3, 10, 0, 4, 5, 2, 2, 9, True, "PROS: More Direct Route, More Scenic Route, Limited Disability Support")
     if off_road:
         mot.append(parasailing);
-    motorcycle = Transportation('motorcycle', 4, 1, 4, 5, 4, 4, 4, 3, 7, False, "PROS: Better Traffic Manuverability, Fast Start Time")
+    motorcycle = Transportation('motorcycle', 4, 3, 4, 5, 4, 4, 4, 3, 7, False, "PROS: Better Traffic Manuverability, Fast Start Time")
     mot.append(motorcycle)
     helicopter = Transportation('helicopter', 7, 4, 7, 4, 7, 6, 1, 7, 0, True, "PROS: Fast Travel Time, Disability Support.")
     if off_road:
