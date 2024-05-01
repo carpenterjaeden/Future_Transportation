@@ -33,29 +33,38 @@ def draw_user_info(user):
         # complete the analysis and print
         top_modes = analyze_output(user, mot)
         screen.fill(WHITE)
-        newText = "" + print_modes(top_modes)
-        #print(newText)
 
-        rendered_text = smallerFont.render(f"{newText}", True, BLACK)
-        screen.blit(rendered_text, (50,50))
+        # Render multiline text
+        text_lines = print_modes(top_modes).split('\n')
+        y_offset = 50
+        for line in text_lines:
+            rendered_text = smallerFont.render(line, True, BLACK)
+            screen.blit(rendered_text, (50, y_offset))
+            y_offset += rendered_text.get_rect().height + 5  # Add some vertical spacing
+
         pygame.display.update()
 
         for event in pygame.event.get():
             if event.type == QUIT:
                 return
+
 
 def draw_test_info(transport):
     while True:
-        
         screen.fill(WHITE)
+        lines = transport.split('\n')
+        y = 50
+        for line in lines:
+            rendered_text = smallerFont.render(line, True, BLACK)
+            screen.blit(rendered_text, (50, y))
+            y += rendered_text.get_rect().height + 5  # Add some vertical spacing
 
-        rendered_text = smallerFont.render(f"{transport}", True, BLACK)
-        screen.blit(rendered_text, (50,50))
         pygame.display.update()
 
         for event in pygame.event.get():
             if event.type == QUIT:
                 return
+
 
 # Main menu options
 options = ["Create New User", "Generate Random User", "Run Longitudinal Tests"]
