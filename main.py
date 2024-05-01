@@ -6,7 +6,7 @@ from args_setup import args
 # instantiate different infrastructures (may be moved to a different file)
 # ask for user input by calling a method in user
 
-mot = set_modes_of_transportation()
+mot = set_modes_of_transportation(args.offroad)
 toi = set_types_of_infrastructure()
 
 if args.random:

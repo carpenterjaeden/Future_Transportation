@@ -2,7 +2,7 @@ from Infrastructure import Infrastructure
 from Transportation import Transportation
 from User import User
 
-def set_modes_of_transportation():
+def set_modes_of_transportation(off_road):
     # 1. name
     # 2. cost 
     # 3. size
@@ -24,7 +24,8 @@ def set_modes_of_transportation():
     taxi =  Transportation('taxi' , 5, 2 , 4, 0, 5, 5, 6, 5, 0, True, "PROS: No Parking Required, No Maintenance, Private Transportation, Target Destination.") # taxi, uber, etc.
     mot.append(taxi)
     plane = Transportation('plane', 8, 200, 10, 2, 9, 6, 1, 8, 0, True, "PROS: Larger Size, Fast Travel Time (destination based), Public Transportation.")
-    mot.append(plane)
+    if off_road:
+        mot.append(plane)
     walk =  Transportation('walk', 0, 5, 0, 0, 1, 0, 1, 5, 10, False, "PROS: No Cost, Immediate Start Time, No Parking, Low Environment Impact.") # I assume false for dis_sup?
     mot.append(walk)
     bike =  Transportation('bike', 1, 1, 0, 2, 3, 0, 3, 4, 9, False, "PROS: Low Cost, Immediate Start Time, Low Environmental Impact.")
@@ -36,11 +37,13 @@ def set_modes_of_transportation():
     rollerblades = Transportation('rollerblades', 2, 1, 1, 0, 2, 0, 1, 3, 6, False, "PROS: Low Cost, Easy Storage, Low Environmental Impact.");
     mot.append(rollerblades)
     parasailing = Transportation('parasailing', 3, 3, 10, 0, 4, 5, 2, 2, 9, True, "PROS: More Direct Route, More Scenic Route, Limited Disability Support")
-    mot.append(parasailing);
+    if off_road:
+        mot.append(parasailing);
     motorcycle = Transportation('motorcycle', 4, 1, 4, 5, 4, 4, 4, 3, 7, False, "PROS: Better Traffic Manuverability, Fast Start Time")
     mot.append(motorcycle)
     helicopter = Transportation('helicopter', 7, 4, 7, 4, 7, 6, 1, 7, 0, True, "PROS: Fast Travel Time, Disability Support.")
-    mot.append(helicopter)
+    if off_road:
+        mot.append(helicopter)
     emergency_vehicle = Transportation('emergency_vehicle', 10, 2, 1, 0, 10, 7, 1, 9, 0, True, "PROS: Fast Travel Time, Disability Support.")
     mot.append(emergency_vehicle)
 

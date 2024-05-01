@@ -4,4 +4,5 @@ parser = argparse.ArgumentParser(description='Process user input method and perf
 parser.add_argument('--random', action='store_true', help='Use random parameters for user input')
 parser.add_argument('--user', action='store_true', help='Use user-generated parameters for user input', default=True)
 parser.add_argument('--la', type=int, metavar='num_tests', help='Perform longitudinal analysis with specified number of tests')
+parser.add_argument('--offroad', action='store_true', help='Adds travel methods that do not use roads')
 args = parser.parse_args()

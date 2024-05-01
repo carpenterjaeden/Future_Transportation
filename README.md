@@ -5,6 +5,7 @@ There are three arguments available:
 --user: this is the default argument that makes the program only accept user input parameters
 --random: this makes the program accept randomly input parameters
 --la x: this makes the program perform x random analyses and shows the longitudal data
+--offroad: this shows transportation methods that do not use roads or walkways
 
 example command: 
 ```python main.py --la 100```
