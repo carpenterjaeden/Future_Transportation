@@ -173,7 +173,7 @@ while running:
                     user = User.random_parameters()
                     draw_user_info(user)
                 elif selected_option == 2:  # Run Longitudinal Tests
-                    print("Run Longitudinal Tests selected")
+                    #print("Run Longitudinal Tests selected")
                     active = False
                     numitems = ""
                     inputting = True
