@@ -6,7 +6,7 @@ from pygame.locals import *
 
 # Initialize Pygame
 pygame.init()
-mot = set_modes_of_transportation()
+mot = set_modes_of_transportation(False)
 toi = set_types_of_infrastructure()
 
 # Set up the screen dimensions and font
@@ -33,6 +33,10 @@ def draw_user_info(user):
         # complete the analysis and print
         top_modes = analyze_output(user, mot)
         screen.fill(WHITE)
+        
+        #Render User text
+        user_info_text = f"User Information:\nAge: {user.age}\nDistance (Miles): {user.distance}\nTime (Importance 0-10): {user.time}\nSize of Party: {user.size}\nDisability: {user.disability}\nTraffic (0-10): {user.traffic}\nCost (Importance 0-10): {user.cost}\nInfrastructure: {user.infrastructure_name}\nOffroad Enabled: {toggle}"
+        draw_text(user_info_text, 700, 50)  # Adjust the coordinates as needed
 
         # Render multiline text
         text_lines = print_modes(top_modes).split('\n')
@@ -67,7 +71,8 @@ def draw_test_info(transport):
 
 
 # Main menu options
-options = ["Create New User", "Generate Random User", "Run Longitudinal Tests"]
+options = ["Create New User", "Generate Random User", "Run Longitudinal Tests", "Toggle Offroad Vehicles On"]
+toggle = False
 selected_option = 0  # Default selected option index
 
 # Main game loop
@@ -212,6 +217,17 @@ while running:
                                         active = False  # Deactivate the field after processing Enter
                                     else:
                                         numitems += event.unicode
+                elif selected_option == 3:
+                    #toggle the offroad vehicles
+                    if toggle == False:
+                        toggle = True
+                        options[3] = "Toggle Offroad Vehicles Off"
+                        mot = set_modes_of_transportation(True)
+                    else:
+                        toggle = False
+                        options[3] = "Toggle Offroad Vehicles On"
+                        mot = set_modes_of_transportation(False)
+                    
 
 
 
