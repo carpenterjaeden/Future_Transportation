@@ -36,7 +36,12 @@ def draw_user_info(user):
         
         #Render User text
         user_info_text = f"User Information:\nAge: {user.age}\nDistance (Miles): {user.distance}\nTime (Importance 0-10): {user.time}\nSize of Party: {user.size}\nDisability: {user.disability}\nTraffic (0-10): {user.traffic}\nCost (Importance 0-10): {user.cost}\nInfrastructure: {user.infrastructure_name}\nOffroad Enabled: {toggle}"
-        draw_text(user_info_text, 700, 50)  # Adjust the coordinates as needed
+        lines = user_info_text.split('\n')
+        y_offset = 50
+        for line in lines:
+            rendered_text = smallerFont.render(line, True, BLACK)
+            screen.blit(rendered_text, (700, y_offset))
+            y_offset += rendered_text.get_rect().height + 5  # Add some vertical spacing
 
         # Render multiline text
         text_lines = print_modes(top_modes).split('\n')
