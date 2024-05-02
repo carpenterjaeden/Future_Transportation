@@ -161,17 +161,6 @@ while running:
                                 if active_field:
                                     if event.key == K_BACKSPACE:
                                         input_fields[active_field] = input_fields[active_field][:-1]
-                                    elif event.key == K_RETURN:
-                                        try:
-                                            # Convert input to int or float if possible
-                                            if "." in input_fields[active_field]:
-                                                input_fields[active_field] = float(input_fields[active_field])
-                                            else:
-                                                input_fields[active_field] = int(input_fields[active_field])
-                                        except ValueError:
-                                            # Handle invalid input (non-numeric)
-                                            input_fields[active_field] = ""  # Clear the input field
-                                        active_field = None  # Deactivate the field after processing Enter
                                     else:
                                         input_fields[active_field] += event.unicode
                 elif selected_option == 1:  # Generate Random User
