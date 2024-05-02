@@ -201,14 +201,7 @@ while running:
                                 if active:
                                     if event.key == K_BACKSPACE:
                                         numitems = numitems[:-1]
-                                    elif event.key == K_RETURN:
-                                        try:
-                                            # Convert input to int 
-                                            numitems = int(numitems)
-                                        except ValueError:
-                                            # Handle invalid input (non-numeric)
-                                            numitems = ""  # Clear the input field
-                                        active = False  # Deactivate the field after processing Enter
+                                    
                                     else:
                                         numitems += event.unicode
                 elif selected_option == 3:
