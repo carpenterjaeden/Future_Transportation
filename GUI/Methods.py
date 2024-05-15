@@ -86,7 +86,7 @@ def analyze_output(user,mot):
         s = trans.calculate_viability(user, user.infrastructure)
         if s > -10000:
             score[trans] = s
-    # sort the scores to provide a list with the top 5 modes of transportation
+    # sort the scores to provide a list with the top 4 modes of transportation
     top_modes = sorted(score, key=score.get, reverse=True)[:4]
     return top_modes
 
@@ -113,7 +113,7 @@ def longitudal_analysis(num_tests, mot, toi):
                 scores[top_modes[i]] += 1
         else:
             print("no top mode")
-            print(vars(user))
+            #print(vars(user))
     return scores
 
 # print out the longitudal analysis scores
